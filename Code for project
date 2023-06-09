@@ -331,16 +331,24 @@ class Main {
     for (int i = 0; i < allStudents.size(); i++){
       
       Class desClass[] = allStudents.get(i).desiredClass;
-      for (int j = 0; j < allStudents.get(i).getClassSize(); j++){
-        if (desClass[j] == class1){
+
+      //Goes through the desired classes of each student
+      for (int j = 0; j < allStudents.get(i).getClassSize(); j++)
+      {
+        //If the desired class array contains class1, it is added to their           schedule
+        if (desClass[j] == class1)
+        {
           count1 ++;
-          if (count1 < 10 && allStudents.get(i).actualClass.size() < 5){
+          if (count1 < 10 && allStudents.get(i).actualClass.size() < 5)
+          {
             allStudents.get(i).actualClass.add(class1);
           }
         }
-        if (desClass[j] == class2){
+        if (desClass[j] == class2)
+        {
           count2 ++;
-          if (count2 < 10 && allStudents.get(i).actualClass.size() < 5){
+          if (count2 < 10 && allStudents.get(i).actualClass.size() < 5)
+          {
             allStudents.get(i).actualClass.add(class2);
           }
         }
@@ -392,44 +400,79 @@ class Main {
             allStudents.get(i).actualClass.add(class10);
           }
         }
-
-        while(allStudents.get(i).actualClass.size() < 5){
-          if (count1 < 10){
-            allStudents.get(i).actualClass.add(class1);
-          }
-          else if (count2 < 10){
-            allStudents.get(i).actualClass.add(class2);
-          }
-          else if (count3 < 10){
-            allStudents.get(i).actualClass.add(class3);
-          }
-          else if (count4 < 10){
-            allStudents.get(i).actualClass.add(class4);
-          }
-          else if (count5 < 10){
-            allStudents.get(i).actualClass.add(class5);
-          }
-          else if (count6 < 10){
-            allStudents.get(i).actualClass.add(class6);
-          }
-          else if (count7 < 10){
-            allStudents.get(i).actualClass.add(class7);
-          }
-          else if (count8 < 10){
-            allStudents.get(i).actualClass.add(class8);
-          }
-          else if (count9 < 10){
-            allStudents.get(i).actualClass.add(class9);
-          }
-          else if (count10 < 10){
-            allStudents.get(i).actualClass.add(class10);
-          }
         }
       }
 
-      
+    //If there are any students with schedules who are still not complete since their preferred classes were filled, this loop will fill them with any other classes that are available. 
+    for(int i = 0; i < allStudents.size(); i++){
+      if (allStudents.get(i).actualClass.size() == 5){
+        continue;
+      }
+      while (allStudents.get(i).actualClass.size() < 5){
+          if (count1 < 10){
+            allStudents.get(i).actualClass.add(class1);
+            if (allStudents.get(i).actualClass.size() == 5){
+              continue;
+            }
+          }
+          else if (count2 < 10){
+            allStudents.get(i).actualClass.add(class2);
+            if (allStudents.get(i).actualClass.size() == 5){
+              continue;
+            }
+          }
+          else if (count3 < 10){
+            allStudents.get(i).actualClass.add(class3);
+            if (allStudents.get(i).actualClass.size() == 5){
+              continue;
+            }
+          }
+          else if (count4 < 10){
+            allStudents.get(i).actualClass.add(class4);
+            if (allStudents.get(i).actualClass.size() == 5){
+              continue;
+            }
+          }
+          else if (count5 < 10){
+            allStudents.get(i).actualClass.add(class5);
+            if (allStudents.get(i).actualClass.size() == 5){
+              continue;
+            }
+          }
+          else if (count6 < 10){
+            allStudents.get(i).actualClass.add(class6);
+            if (allStudents.get(i).actualClass.size() == 5){
+              continue;
+            }
+          }
+          else if (count7 < 10){
+            allStudents.get(i).actualClass.add(class7);
+            if (allStudents.get(i).actualClass.size() == 5){
+              continue;
+            }
+          }
+          else if (count8 < 10){
+            allStudents.get(i).actualClass.add(class8);
+            if (allStudents.get(i).actualClass.size() == 5){
+              continue;
+            }
+          }
+          else if (count9 < 10){
+            allStudents.get(i).actualClass.add(class9);
+            if (allStudents.get(i).actualClass.size() == 5){
+              continue;
+            }
+          }
+          else if (count10 < 10){
+            allStudents.get(i).actualClass.add(class10);
+            if (allStudents.get(i).actualClass.size() == 5){
+              continue;
+            }
+          }
     }
-    System.out.println(student1.getName() + ":" + student1.actualClass);
+    }
+    
+    System.out.print(student1.getName() + ":" + student1.actualClass);
     System.out.println(student2.getName() + ":" + student2.actualClass);
     System.out.println(student3.getName() + ":" + student3.actualClass);
     System.out.println(student4.getName() + ":" + student4.actualClass);
@@ -479,7 +522,6 @@ class Main {
     System.out.println(student48.getName() + ":" + student48.actualClass);
     System.out.println(student49.getName() + ":" + student49.actualClass);
     System.out.println(student50.getName() + ":" + student50.actualClass);
-
     
-  }
+}
 }
