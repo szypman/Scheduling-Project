@@ -1,0 +1,485 @@
+import java.util.ArrayList;
+
+class Teacher{
+  private String name; 
+  private String classTaught;
+  private int[] periods;
+
+  public Teacher(String name, String classTaught){
+    this.name = name;
+    this.classTaught = classTaught; 
+  }
+
+  public String getName(){
+    return name;
+  }
+
+  public String getClassTaught(){
+    return classTaught;
+  }
+
+  public int[] getPeriods(){
+    return periods;
+  }
+}
+
+class Class {
+  private Teacher teacher;
+  private ArrayList<Student> students;
+  private int maxsize;
+
+  public Class(Teacher teacher, int maxsize){
+    this.teacher = teacher;
+    this.maxsize = maxsize;
+    students = new ArrayList<Student>();
+  }
+
+  public Teacher getTeacher(){
+    return teacher;
+  }
+
+  public ArrayList<Student> getStudents(){
+    return students;
+  }
+
+  public int getMaxSize(){
+    return maxsize;
+  }
+}
+
+class Student{
+  private int grade;
+  private String name; 
+  private int numPeriods; 
+  public Class[] desiredClass;
+  public ArrayList<Class> actualClass;
+
+  public Student (int grade, String name, int numPeriods, Class[] desiredClass){
+    this.grade = grade;
+    this.name = name;
+    this.numPeriods = numPeriods;
+    this.desiredClass = desiredClass;
+    actualClass = new ArrayList<Class>();
+  }
+
+  public int getGrade(){
+    return grade;
+  }
+  
+  public String getName(){
+    return name;
+  }
+
+  public int getClassSize(){
+    return desiredClass.length;
+  }
+  
+}
+
+class Schedule{
+  private int numPeriods;
+  private ArrayList<Class> classes;
+  private Student student;
+
+  public Schedule(Student student, int num) {
+    this.student = student;
+    numPeriods = num;
+    ArrayList<Class> newSched = new ArrayList<Class>();
+    classes = newSched;
+  }
+}
+
+class Main {
+  public static void main(String[] args) {
+    Teacher teacher1 = new Teacher ("Mr. Z", "Physics");
+    Teacher teacher2 = new Teacher ("Mr. Rose", "Computer Science");
+    Teacher teacher3 = new Teacher ("Mr. Meier", "History");
+    Teacher teacher4 = new Teacher ("Mr.Nemeth", "Math");
+    Teacher teacher5 = new Teacher ("Mr. Mejia", "Chemistry");
+    Teacher teacher6 = new Teacher ("Ms. T", "English");
+    Teacher teacher7 = new Teacher ("Ms. G", "Art");
+    Teacher teacher8 = new Teacher ("Mr. Boita", "Biology");
+    Teacher teacher9 = new Teacher ("Ms. Zoino", "Italian");
+    Teacher teacher10 = new Teacher ("Ms. Cabo", "Spanish");
+    Class class1 = new Class(teacher1, 10);
+    Class class2 = new Class(teacher2, 10);
+    Class class3 = new Class(teacher3, 10);
+    Class class4 = new Class(teacher4, 10);
+    Class class5 = new Class(teacher5, 10);
+    Class class6 = new Class(teacher6, 10);
+    Class class7 = new Class(teacher7, 10);
+    Class class8 = new Class(teacher8, 10);
+    Class class9 = new Class(teacher9, 10);
+    Class class10 = new Class(teacher10, 10);
+
+    Class SofiaZypman[] = {class10, class9, class1, class3, class8, class7, class5};
+    Student student1 = new Student (12, "Sofia Zypman", 5, SofiaZypman); 
+
+    Class JohnCarly[] = {class1, class2, class3, class4, class6, class7, class9};
+    Student student2 = new Student (11, "John Carly", 5, JohnCarly);
+    
+    Class DianaValencia[] = {class3, class5, class4, class7, class10, class8, class9};
+    Student student3 = new Student (10, "Diana Valencia", 5, DianaValencia);
+
+    Class RyanFernando[] = {class2, class6, class7, class10, class1, class5, class3};
+    Student student4 = new Student (9, "Ryan Fernando", 5, RyanFernando);
+
+    Class StephanieAzar[] = {class3, class6, class7, class9, class10, class4, class8};
+    Student student5 = new Student (11, "Stephanie Azar", 5, StephanieAzar);
+
+    Class GregHowl[] = {class1, class2, class3, class4, class5, class6, class7};
+    Student student6 = new Student (10, "Greg Howl", 5, GregHowl);
+
+    Class VeronicaWolf[] = {class10, class9, class8, class7, class6, class5, class4};
+    Student student7 = new Student (9, "Veronica Wolf", 5, VeronicaWolf);
+
+    Class WillBrown[] = {class2, class3, class4, class5, class6, class7, class8};
+    Student student8 = new Student (9, "Will Brown", 5, WillBrown);
+
+    Class JoeGoldberg[] = {class3, class4, class5, class6, class7, class8, class9};
+    Student student9 = new Student (11, "Joe Goldberg", 5, JoeGoldberg);
+
+    Class PhilDunphy[] = {class4, class5, class6, class7, class8, class9, class10};
+    Student student10 = new Student (10, "Phil Dunphy", 5, PhilDunphy);
+
+    Class AndrewKim[] = {class5, class6, class7, class8, class9, class10, class1};
+    Student student11 = new Student (12, "Andrew Kim", 5, AndrewKim);
+
+    Class ClaireDunphy[] = {class6, class7, class8, class9, class10, class1, class2};
+    Student student12 = new Student (11, "Claire Dunphy", 5, ClaireDunphy);
+
+    Class TimothyRadcliff[] = {class6, class7, class8, class9, class10, class1, class2};
+    Student student13 = new Student (9, "Timothy Radcliff", 5, TimothyRadcliff);
+
+    Class EvanSylva[] = {class7, class8, class9, class10, class1, class2, class3};
+    Student student14 = new Student (10, "Evan Sylva", 5, EvanSylva);
+
+    Class JenniferBronte [] = {class8, class9, class10, class1, class2, class3, class4}; 
+    Student student15 = new Student (11, "Jennifer Bronte", 5, JenniferBronte);
+
+    Class DanielMalone[] = {class9, class10, class1, class2, class3, class4, class5}; 
+    Student student16 = new Student (9, "Daniel Malone", 5, DanielMalone);
+
+    Class EleanorRadcliff[] = {class9, class10, class1, class2, class3, class4, class5};
+    Student student17 = new Student (10, "Eleanor Radcliff", 5, EleanorRadcliff);
+
+    Class EmilyVentura[] = {class10, class1, class2, class3, class4, class5, class6};
+    Student student18 = new Student (12, "Emily Ventura", 5, EmilyVentura);
+
+    Class CalvinWhite[] = {class1, class3, class4, class6, class9, class5, class7};
+    Student student19 = new Student (9, "Calvin White", 5, CalvinWhite);
+
+    Class CatherineJohnson[] = {class2, class4, class6, class9, class1, class10, class8};
+    Student student20 = new Student (11, "Catherine Johnson", 5, CatherineJohnson);
+
+    Class ChristinaLiebman [] = {class2, class3, class5, class7, class9, class10, class1};
+    Student student21 = new Student (12, "Christina Liebman", 5, ChristinaLiebman);
+
+    Class JimmyKlein[] = {class3, class5, class6, class7, class8, class10, class9};
+    Student student22 = new Student (11, "Jimmy Klein", 5, JimmyKlein);
+
+    Class JordanLee[] = {class4, class6, class7, class8, class9, class10, class2};
+    Student student23 = new Student (12, "Jordan Lee", 5, JordanLee);
+
+    Class JaidenPalmer [] = {class5, class7, class9, class1, class3, class4, class10};
+    Student student24 = new Student (9, "Jaiden Palmer", 5, JaidenPalmer);
+
+    Class NateArchibald[] = {class1, class2, class3, class4, class5, class6, class7};
+    Student student25 = new Student (12, "Nate Archibald", 5, NateArchibald);
+
+    Class SerenaWoodsen[] = {class4, class5, class6, class7, class9, class10, class1};
+    Student student26 = new Student (10, "Serena Woodsen", 5, SerenaWoodsen);
+
+    Class BlairWaldorf[] = {class4, class6, class7, class8, class9, class10, class1};
+    Student student27 = new Student (11, "Blair Waldorf", 5, BlairWaldorf);
+
+    Class CharlesBass[] = {class5, class6, class7, class8, class9, class10, class1};
+    Student student28 = new Student (12, "Charles Bass", 5, CharlesBass);
+
+    Class LilyPolk[] = {class4, class5, class7, class8, class9, class10, class1}; 
+    Student student29 = new Student (12, "Lily Polk", 5, LilyPolk);
+
+    Class RufusGreen[] = {class4, class5, class6, class8, class9, class10, class1};
+    Student student30 = new Student (10, "Rufus Green", 5, RufusGreen);
+
+    Class SarahCameron[] = {class4, class5, class6, class7, class9, class10, class1};
+    Student student31 = new Student (10, "Sarah Cameron", 5, SarahCameron);
+
+    Class DanHumphrey[] = {class3, class4, class5, class6, class7, class8, class9};
+    Student student32 = new Student (12, "Dan Humphrey", 5, DanHumphrey);
+
+    Class JennyKramer[] = {class2, class4, class5, class6, class7, class8, class9};
+    Student student33 = new Student (10, "Jenny Kramer", 5, JennyKramer);
+
+    Class PaulinaBlake[] = {class2, class3, class5, class6, class7, class8, class10};
+    Student student34 = new Student (10, "Paulina Blake", 5, PaulinaBlake);
+
+    Class MichaelSmith[] = {class2, class3, class4, class6, class7, class8, class1};
+    Student student35 = new Student (11, "Michael Smith", 5, MichaelSmith);
+
+    Class PamelaGrant[] = {class2, class3, class4, class5, class7, class8, class10};
+    Student student36 = new Student (9, "Pamela Grant", 5, PamelaGrant);
+
+    Class DwightSchrute[] = {class2, class3, class4, class5, class6, class8, class9}; 
+    Student student37 = new Student (12, "Dwight Schrute", 5, DwightSchrute);
+
+    Class KevinZhang[] = {class3, class4, class5, class6, class7, class8, class9};
+    Student student38 = new Student (9, "Kevin Zhang", 5, KevinZhang);
+
+    Class KellyZimmerman[] = {class4, class5, class6, class7, class8, class9, class1};
+    Student student39 = new Student (10, "Kelly Zimmerman", 5, KellyZimmerman);
+
+    Class RonaldRed[] = {class8, class10, class1, class2, class3, class4, class2};
+    Student student40 = new Student (12, "Ronald Red", 5, RonaldRed);
+
+    Class JerryColeman[] = {class8, class9, class1, class2, class3, class4, class5};
+    Student student41 = new Student (10, "Jerry Coleman", 5, JerryColeman);
+
+    Class LolaMorr[] = {class9, class10, class1, class2, class3, class4, class5};
+    Student student42 = new Student (12, "Lola Morr", 5, LolaMorr);
+
+    Class ElioBergman[] = {class1, class2, class2, class5, class6, class7, class8};
+    Student student43 = new Student (11, "Elio Bergman", 5, ElioBergman);
+
+    Class BenAllen[] = {class1, class2, class3, class4, class2, class6, class8};
+    Student student44 = new Student (9, "Ben Allen", 5, BenAllen);
+
+    Class AllieRoosevelt[] = {class1, class2, class3, class4, class5, class7, class9};
+    Student student45 = new Student (12, "Allie Roosevelt", 5, AllieRoosevelt);
+    
+    Class AbbyYoo[] = {class1, class2, class3, class2, class5, class6, class10};
+    Student student46 = new Student (9, "Abby Yoo", 5, AbbyYoo);
+
+    Class RachelBerry[] = {class6, class7, class8, class1, class2, class3, class4};
+    Student student47 = new Student (12, "Rachel Berry", 5, RachelBerry);
+
+    Class PabloGarcia[] = {class6, class1, class2, class3, class4, class5, class10};
+    Student student48 = new Student (9, "Pablo Garcia", 5, PabloGarcia);
+
+    Class EmmaPulitzer[] = {class1, class3, class4, class5, class7, class8, class9};
+    Student student49 = new Student (12, "Emma Pulitzer", 5, EmmaPulitzer);
+
+    Class LoganStein[] = {class2, class3, class5, class6, class7, class8, class9};
+    Student student50 = new Student (11, "Logan Stein", 5, LoganStein);
+
+   // System.out.println(student1.getName());
+
+    ArrayList<Student> allStudents = new ArrayList<Student>();
+    allStudents.add(student1);
+    allStudents.add(student2);
+    allStudents.add(student3);
+    allStudents.add(student4);
+    allStudents.add(student5);
+    allStudents.add(student6);
+    allStudents.add(student7);
+    allStudents.add(student8);
+    allStudents.add(student9);
+    allStudents.add(student10);
+    allStudents.add(student11);
+    allStudents.add(student12);
+    allStudents.add(student13);
+    allStudents.add(student14);
+    allStudents.add(student15);
+    allStudents.add(student16);
+    allStudents.add(student17);
+    allStudents.add(student18);
+    allStudents.add(student19);
+    allStudents.add(student20);
+    allStudents.add(student21);
+    allStudents.add(student22);
+    allStudents.add(student23);
+    allStudents.add(student24);
+    allStudents.add(student25);
+    allStudents.add(student26);
+    allStudents.add(student27);
+    allStudents.add(student28);
+    allStudents.add(student29);
+    allStudents.add(student30);
+    allStudents.add(student31);
+    allStudents.add(student32);
+    allStudents.add(student33);
+    allStudents.add(student34);
+    allStudents.add(student35);
+    allStudents.add(student36);
+    allStudents.add(student37);
+    allStudents.add(student38);
+    allStudents.add(student39);
+    allStudents.add(student40);
+    allStudents.add(student41);
+    allStudents.add(student42);
+    allStudents.add(student43);
+    allStudents.add(student44);
+    allStudents.add(student45);
+    allStudents.add(student46);
+    allStudents.add(student47);
+    allStudents.add(student48);
+    allStudents.add(student49);
+    allStudents.add(student50);
+
+    int count1 = 0;
+    int count2 = 0;
+    int count3 = 0;
+    int count4 = 0;
+    int count5 = 0;
+    int count6 = 0;
+    int count7 = 0;
+    int count8 = 0;
+    int count9 = 0;
+    int count10 = 0;
+
+    //Goes through the ArrayList allStudents 
+    for (int i = 0; i < allStudents.size(); i++){
+      
+      Class desClass[] = allStudents.get(i).desiredClass;
+      for (int j = 0; j < allStudents.get(i).getClassSize(); j++){
+        if (desClass[j] == class1){
+          count1 ++;
+          if (count1 < 10 && allStudents.get(i).actualClass.size() < 5){
+            allStudents.get(i).actualClass.add(class1);
+          }
+        }
+        if (desClass[j] == class2){
+          count2 ++;
+          if (count2 < 10 && allStudents.get(i).actualClass.size() < 5){
+            allStudents.get(i).actualClass.add(class2);
+          }
+        }
+        if (desClass[j] == class3){
+          count3 ++;
+          if (count3 < 10 && allStudents.get(i).actualClass.size() < 5){
+            allStudents.get(i).actualClass.add(class3);
+          }
+        }
+        if (desClass[j] == class4){
+          count4 ++;
+          if (count4 < 10 && allStudents.get(i).actualClass.size() <= 5){
+            allStudents.get(i).actualClass.add(class4);
+          }
+        }
+        if (desClass[j] == class5){
+          count5 ++;
+          if (count5 < 10 && allStudents.get(i).actualClass.size() < 5){
+            allStudents.get(i).actualClass.add(class5);
+          }
+        }
+        if (desClass[j] == class6){
+          count6 ++;
+          if (count6 < 10 && allStudents.get(i).actualClass.size() < 5){
+            allStudents.get(i).actualClass.add(class6);
+          }
+        }
+        if (desClass[j] == class7){
+          count7 ++;
+          if (count7 < 10 && allStudents.get(i).actualClass.size() < 5){
+            allStudents.get(i).actualClass.add(class7);
+          }
+        }
+        if (desClass[j] == class8){
+          count8 ++;
+          if (count8 < 10 && allStudents.get(i).actualClass.size() < 5){
+            allStudents.get(i).actualClass.add(class8);
+          }
+        }
+        if (desClass[j] == class9){
+          count9 ++;
+          if (count9 < 10 && allStudents.get(i).actualClass.size() < 5){
+            allStudents.get(i).actualClass.add(class9);
+          }
+        }
+        if (desClass[j] == class10){
+          count10 ++;
+          if (count10 < 10 && allStudents.get(i).actualClass.size() < 5){
+            allStudents.get(i).actualClass.add(class10);
+          }
+        }
+
+        while(allStudents.get(i).actualClass.size() < 5){
+          if (count1 < 10){
+            allStudents.get(i).actualClass.add(class1);
+          }
+          else if (count2 < 10){
+            allStudents.get(i).actualClass.add(class2);
+          }
+          else if (count3 < 10){
+            allStudents.get(i).actualClass.add(class3);
+          }
+          else if (count4 < 10){
+            allStudents.get(i).actualClass.add(class4);
+          }
+          else if (count5 < 10){
+            allStudents.get(i).actualClass.add(class5);
+          }
+          else if (count6 < 10){
+            allStudents.get(i).actualClass.add(class6);
+          }
+          else if (count7 < 10){
+            allStudents.get(i).actualClass.add(class7);
+          }
+          else if (count8 < 10){
+            allStudents.get(i).actualClass.add(class8);
+          }
+          else if (count9 < 10){
+            allStudents.get(i).actualClass.add(class9);
+          }
+          else if (count10 < 10){
+            allStudents.get(i).actualClass.add(class10);
+          }
+        }
+      }
+
+      
+    }
+    System.out.println(student1.getName() + ":" + student1.actualClass);
+    System.out.println(student2.getName() + ":" + student2.actualClass);
+    System.out.println(student3.getName() + ":" + student3.actualClass);
+    System.out.println(student4.getName() + ":" + student4.actualClass);
+    System.out.println(student5.getName() + ":" + student5.actualClass);
+    System.out.println(student6.getName() + ":" + student6.actualClass);
+    System.out.println(student7.getName() + ":" + student7.actualClass);
+    System.out.println(student8.getName() + ":" + student8.actualClass);
+    System.out.println(student9.getName() + ":" + student9.actualClass);
+    System.out.println(student10.getName() + ":" + student10.actualClass);
+    System.out.println(student11.getName() + ":" + student11.actualClass);
+    System.out.println(student12.getName() + ":" + student12.actualClass);
+    System.out.println(student13.getName() + ":" + student13.actualClass);
+    System.out.println(student14.getName() + ":" + student14.actualClass);
+    System.out.println(student15.getName() + ":" + student15.actualClass);
+    System.out.println(student16.getName() + ":" + student16.actualClass);
+    System.out.println(student17.getName() + ":" + student17.actualClass);
+    System.out.println(student18.getName() + ":" + student18.actualClass);
+    System.out.println(student19.getName() + ":" + student19.actualClass);
+    System.out.println(student20.getName() + ":" + student20.actualClass);
+    System.out.println(student21.getName() + ":" + student21.actualClass);
+    System.out.println(student22.getName() + ":" + student22.actualClass);
+    System.out.println(student23.getName() + ":" + student23.actualClass);
+    System.out.println(student24.getName() + ":" + student24.actualClass);
+    System.out.println(student25.getName() + ":" + student25.actualClass);
+    System.out.println(student26.getName() + ":" + student26.actualClass);
+    System.out.println(student27.getName() + ":" + student27.actualClass);
+    System.out.println(student28.getName() + ":" + student28.actualClass);
+    System.out.println(student29.getName() + ":" + student29.actualClass);
+    System.out.println(student30.getName() + ":" + student30.actualClass);
+    System.out.println(student31.getName() + ":" + student31.actualClass);
+    System.out.println(student32.getName() + ":" + student32.actualClass);
+    System.out.println(student33.getName() + ":" + student33.actualClass);
+    System.out.println(student34.getName() + ":" + student34.actualClass);
+    System.out.println(student35.getName() + ":" + student35.actualClass);
+    System.out.println(student36.getName() + ":" + student36.actualClass);
+    System.out.println(student37.getName() + ":" + student37.actualClass);
+    System.out.println(student38.getName() + ":" + student38.actualClass);
+    System.out.println(student39.getName() + ":" + student39.actualClass);
+    System.out.println(student40.getName() + ":" + student40.actualClass);
+    System.out.println(student41.getName() + ":" + student41.actualClass);
+    System.out.println(student42.getName() + ":" + student42.actualClass);
+    System.out.println(student43.getName() + ":" + student43.actualClass);
+    System.out.println(student44.getName() + ":" + student44.actualClass);
+    System.out.println(student45.getName() + ":" + student45.actualClass);
+    System.out.println(student46.getName() + ":" + student46.actualClass);
+    System.out.println(student47.getName() + ":" + student47.actualClass);
+    System.out.println(student48.getName() + ":" + student48.actualClass);
+    System.out.println(student49.getName() + ":" + student49.actualClass);
+    System.out.println(student50.getName() + ":" + student50.actualClass);
+
+    
+  }
+}
